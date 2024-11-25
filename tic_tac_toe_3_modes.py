@@ -225,57 +225,58 @@ def tic_tac_toe():
         
 
             '''Zapobieganie podwójego zagrożenia dwóch konkretnych przypadkach, drugi przypadek jest w ostatnim elif'ie'''
-            if board[7] == player_symbol and (board[0] == player_symbol or board[2] == player_symbol) and board[8] == '-':
-                if board[8] == '-':
-                    board[8] = bot_symbol
-                    moves_bot += 1
-                    return 1
-            
-            elif board[3] == player_symbol and (board[2] == player_symbol or board[8] == player_symbol):
-                if board[6] == '-':
-                    board[6] = bot_symbol
-                    moves_bot += 1
-                    return 1
-            
-            elif board[1] == player_symbol and (board[6] == player_symbol or board[8] == player_symbol):
+            if mode == 3:
+                if board[7] == player_symbol and (board[0] == player_symbol or board[2] == player_symbol) and board[8] == '-':
+                    if board[8] == '-':
+                        board[8] = bot_symbol
+                        moves_bot += 1
+                        return 1
+                
+                elif board[3] == player_symbol and (board[2] == player_symbol or board[8] == player_symbol):
+                    if board[6] == '-':
+                        board[6] = bot_symbol
+                        moves_bot += 1
+                        return 1
+                
+                elif board[1] == player_symbol and (board[6] == player_symbol or board[8] == player_symbol):
+                    if board[0] == '-':
+                        board[0] = bot_symbol
+                        moves_bot += 1
+                        return 1
+    
+                elif board[5] == player_symbol and (board[0] == player_symbol or board[6] == player_symbol):
+                    if board[2] == '-':
+                        board[2] = bot_symbol
+                        moves_bot += 1
+                        return 1
+    
+                elif (board[0] == player_symbol and board[8] == player_symbol) or (board[2] == player_symbol and board[6] == player_symbol):
+                    if board[1] == '-':
+                        board[1] = bot_symbol
+                        moves_bot += 1
+                        return 1
+    
+    
+                '''Zajmuje rogi jeśli są wolne'''
                 if board[0] == '-':
-                    board[0] = bot_symbol
+                    board[0] = symbol_bot
                     moves_bot += 1
                     return 1
-
-            elif board[5] == player_symbol and (board[0] == player_symbol or board[6] == player_symbol):
-                if board[2] == '-':
-                    board[2] = bot_symbol
+    
+                elif board[2] == '-':
+                    board[2] = symbol_bot
                     moves_bot += 1
                     return 1
-
-            elif (board[0] == player_symbol and board[8] == player_symbol) or (board[2] == player_symbol and board[6] == player_symbol):
-                if board[1] == '-':
-                    board[1] = bot_symbol
+    
+                elif board[6] == '-':
+                    board[6] = symbol_bot
                     moves_bot += 1
                     return 1
-
-
-            '''Zajmuje rogi jeśli są wolne'''
-            if board[0] == '-':
-                board[0] = symbol_bot
-                moves_bot += 1
-                return 1
-
-            elif board[2] == '-':
-                board[2] = symbol_bot
-                moves_bot += 1
-                return 1
-
-            elif board[6] == '-':
-                board[6] = symbol_bot
-                moves_bot += 1
-                return 1
-
-            elif board[8] == '-':
-                board[8] = symbol_bot
-                moves_bot += 1
-                return 1
+    
+                elif board[8] == '-':
+                    board[8] = symbol_bot
+                    moves_bot += 1
+                    return 1
 
 
         '''Losowo jeżeli nie ma możliwości blokady, wygrania lub zajęcia jednego z rogów'''
