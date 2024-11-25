@@ -357,9 +357,8 @@ def tic_tac_toe():
             print('Draw!')
             return 1
 
-
-    game = True
-    while game:
+    
+    while True:
         display_board()
 
         if check_win(player_symbol,moves_player):
